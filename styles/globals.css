@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+  .neon-glow {
+    animation: neonFlicker 5s infinite;
+    filter: drop-shadow(0 0 6px #ff4da6);
+  }
+
+  @keyframes neonFlicker {
+    0%   { opacity: 1; filter: drop-shadow(0 0 10px #ff4da6); }
+    3%   { opacity: 0.4; filter: drop-shadow(0 0 2px #ff4da6); }
+    6%   { opacity: 1; }
+    8%   { opacity: 0.7; }
+    9%   { opacity: 0.3; }
+    10%  { opacity: 1; }
+    50%  { filter: drop-shadow(0 0 15px #ff4da6); }
+    70%  { opacity: 0.8; }
+    72%  { opacity: 1; }
+    100% { opacity: 0.95; filter: drop-shadow(0 0 8px #ff4da6); }
+  }
+}
+@layer utilities {
+  @keyframes carousel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-carousel {
+    animation: carousel 40s linear infinite;
+  }
+}
