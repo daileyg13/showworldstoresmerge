@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer utilities {
   .neon-glow {
     animation: neonFlicker 5s infinite;
@@ -19,8 +20,7 @@
     72%  { opacity: 1; }
     100% { opacity: 0.95; filter: drop-shadow(0 0 8px #ff4da6); }
   }
-}
-@layer utilities {
+
   @keyframes carousel {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
@@ -28,5 +28,15 @@
 
   .animate-carousel {
     animation: carousel 40s linear infinite;
+  }
+
+  /* 👇 Hides scrollbars */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
   }
 }
