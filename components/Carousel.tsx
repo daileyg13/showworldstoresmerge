@@ -69,19 +69,20 @@ export default function Carousel() {
             <Card
               key={title}
               className="min-w-[250px] max-w-[250px] flex-shrink-0 transition-transform duration-500 ease-in-out transform hover:scale-105 z-10"
-              style={{ animationDelay: `${index * 2}s` }}
             >
-              <CardContent className="p-4 flex flex-col items-center">
-                <img
-                  src={img}
-                  alt={title}
-                  className="rounded-md mb-4 w-full object-contain h-48"
-                />
-                <p className="font-medium text-center text-sm mb-2">{title}</p>
-                <a href={link} target="_blank" rel="noopener noreferrer">
-                  <Button>View Product</Button>
-                </a>
-              </CardContent>
+              <div style={{ animationDelay: `${index * 2}s` }}>
+                <CardContent className="p-4 flex flex-col items-center">
+                  <img
+                    src={img}
+                    alt={title}
+                    className="rounded-md mb-4 w-full object-contain h-48"
+                  />
+                  <p className="font-medium text-center text-sm mb-2">{title}</p>
+                  <a href={link} target="_blank" rel="noopener noreferrer">
+                    <Button>View Product</Button>
+                  </a>
+                </CardContent>
+              </div>
             </Card>
           ))}
         </div>

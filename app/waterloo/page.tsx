@@ -30,7 +30,13 @@ export default function WaterlooStore() {
         </div>
       </main>
 
-      <Carousel />
+      <section className="py-20 px-6">
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+        <h2 className="text-5xl font-light text-center mb-10 text-pink-500 neon-glow" style={{ fontFamily: 'Pacifico, cursive' }}>
+          Trending Now
+        </h2>
+        <Carousel />
+      </section>
 
       <footer className="bg-zinc-950 py-6 text-center text-sm text-zinc-400 mt-20">
         <div className="flex flex-col items-center gap-2">
