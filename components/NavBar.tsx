@@ -14,7 +14,13 @@ export default function NavBar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md px-6 shadow-md h-20 sm:h-24 flex flex-col justify-center">
       <div className="flex justify-between items-center">
-        <img src="/Images/ShowWorld girl pink.png" alt="Show World Logo" className="h-20" />
+        <Link href="/" className="group">
+          <img
+            src="/Images/ShowWorld girl pink.png"
+            alt="Show World Logo"
+            className="h-20 transition duration-300 group-hover:brightness-0 group-hover:invert"
+          />
+        </Link>
         <button onClick={toggleMenu} className="text-white md:hidden">
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
