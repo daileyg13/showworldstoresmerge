@@ -1,4 +1,3 @@
-// components/NavBar.tsx
 'use client';
 
 import { useState } from 'react';
@@ -12,8 +11,9 @@ export default function NavBar() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md px-6 shadow-md h-20 sm:h-24 flex flex-col justify-center">
-      <div className="flex justify-between items-center">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md shadow-md">
+      {/* Top Bar */}
+      <div className="h-20 sm:h-24 px-6 flex justify-between items-center">
         <Link href="/" className="group">
           <img
             src="/Images/ShowWorld girl pink.png"
@@ -25,7 +25,13 @@ export default function NavBar() {
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
-      <div className={`flex-col md:flex md:flex-row md:items-center md:justify-center w-full gap-4 mt-4 md:mt-0 ${isOpen ? 'flex' : 'hidden'} md:flex`}>
+
+      {/* Menu Items */}
+      <div
+        className={`flex-col md:flex md:flex-row md:items-center md:justify-center w-full gap-4 px-6 pb-4 transition-all duration-300 ease-in-out ${
+          isOpen ? 'flex' : 'hidden'
+        } md:flex`}
+      >
         {menuItems.map((label) => (
           <Link
             key={label}
