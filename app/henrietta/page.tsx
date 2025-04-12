@@ -9,16 +9,22 @@ export default function HenriettaStore() {
       <NavBar />
 
       <main className="pt-32 text-center px-4">
-        <h1 className="text-4xl font-bold mb-6 text-pink-500">Show World - Henrietta</h1>
-        <p className="mb-4 text-lg">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-pink-500">
+          Show World - Henrietta
+        </h1>
+        <p className="mb-4 text-lg sm:text-xl">
           Visit our Henrietta location for the full Show World experience!
         </p>
+
+        {/* Neon Opening Hours */}
         <h2
           className="text-5xl font-light text-center mb-10 text-blue-400 neon-glow"
           style={{ fontFamily: "Pacifico, cursive" }}
         >
           Open 24/7
         </h2>
+
+        {/* Address & Call Section */}
         <div className="flex flex-col md:flex-row justify-center items-center md:items-end gap-8 md:gap-32">
           <div className="text-center">
             <p className="text-sm mb-2">Address:</p>
@@ -31,13 +37,18 @@ export default function HenriettaStore() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="mt-2 bg-pink-600 hover:bg-pink-700 text-white">Get Directions</Button>
+              <Button className="mt-2 bg-pink-600 hover:bg-pink-700 text-white">
+                Get Directions
+              </Button>
             </a>
           </div>
+
           <div className="text-center">
             <p className="text-sm mb-2">Phone: (585) 424-2580</p>
             <a href="tel:+15854242580">
-              <Button className="mt-2 bg-pink-600 hover:bg-pink-700 text-white">Call Us</Button>
+              <Button className="mt-2 bg-pink-600 hover:bg-pink-700 text-white">
+                Call Us
+              </Button>
             </a>
           </div>
         </div>

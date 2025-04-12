@@ -11,7 +11,7 @@ export default function NavBar() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md shadow-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md shadow-md border-b border-zinc-800">
       {/* Top Bar */}
       <div className="h-20 sm:h-24 px-6 flex justify-between items-center">
         <Link href="/" className="group">

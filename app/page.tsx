@@ -1,7 +1,7 @@
 import { Card, CardContent } from "../components/ui/card";
 import NavBar from "@/components/NavBar";
 import Carousel from "@/components/Carousel";
-import Footer from "@/components/Footer"; // <-- add this
+import Footer from "@/components/Footer";
 
 export default function HomePage() {
   const categories = [
@@ -11,13 +11,17 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="bg-black text-white font-sans overflow-x-hidden">
+    <div className="bg-black text-white font-sans overflow-x-hidden min-h-screen">
       <NavBar />
 
-      <section className="flex flex-col items-center justify-center text-center min-h-[80vh] bg-gradient-to-br from-zinc-900 to-zinc-800 px-4 mt-24 sm:mt-32">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-6xl">
+      {/* Hero Section */}
+      <section className="pt-32 px-4 pb-16 text-center bg-gradient-to-br from-zinc-900 to-zinc-800">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-12 text-pink-500">
+          Welcome to Show World
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-6xl mx-auto">
           {categories.map(({ title, img }) => (
-            <Card key={title} className="w-full">
+            <Card key={title} className="w-full bg-zinc-900 border-zinc-800">
               <CardContent className="p-6 flex flex-col items-center text-center">
                 <img
                   src={img}
@@ -25,18 +29,29 @@ export default function HomePage() {
                   className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
                   style={{ animationDelay: `${Math.random() * 5}s` }}
                 />
-                <p className="text-2xl font-bold">{title}</p>
+                <p className="text-2xl font-bold text-white">{title}</p>
               </CardContent>
             </Card>
           ))}
         </div>
       </section>
 
-      <Carousel />
-      <Footer /> {/* ← use footer here */}
+      {/* Featured Carousel */}
+      <section className="py-20 px-6">
+        <h2
+          className="text-5xl font-light text-center mb-10 text-blue-400 neon-glow"
+          style={{ fontFamily: "Pacifico, cursive" }}
+        >
+          Trending Now
+        </h2>
+        <Carousel />
+      </section>
+
+      <Footer />
     </div>
   );
 }
+
 
 
 
