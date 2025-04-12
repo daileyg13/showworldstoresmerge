@@ -16,15 +16,14 @@ export default function NavBar() {
     { label: 'Greece', href: '/greece' },
     { label: 'Henrietta', href: '/henrietta' },
     { label: 'Waterloo', href: '/waterloo' },
-    { label: 'Lingerie', href: '#' },
+    { label: 'Lingerie', href: 'http://www.shopshowworld.com/c.html?c=79&b=Most+Recent', external: true },
     { label: 'Smoke Shop', href: '#' },
-    { label: 'Toys', href: '#' },
-    { label: 'Movies', href: '#' },
+    { label: 'Toys', href: 'http://www.shopshowworld.com/c.html?b=Most+Popular', external: true },
+    { label: 'Movies', href: 'http://www.shopshowworld.com/videos?b=Most+Recent', external: true },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -34,7 +33,6 @@ export default function NavBar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Escape key closes search
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -100,25 +98,33 @@ export default function NavBar() {
 
         {/* Menu Items */}
         <div
-  className={`flex-col md:flex md:flex-row md:items-center md:justify-center w-full gap-4 px-6 pb-4 transition-all duration-300 ease-in-out ${
-    isOpen
-      ? 'flex bg-black/80 backdrop-blur-md md:bg-transparent'
-      : 'hidden'
-  } md:flex`}
->
-          {menuItems.map(({ label, href }) => {
+          className={`flex-col md:flex md:flex-row md:items-center md:justify-center w-full gap-4 px-6 pb-4 transition-all duration-300 ease-in-out ${
+            isOpen
+              ? 'flex bg-black/80 backdrop-blur-md md:bg-transparent'
+              : 'hidden'
+          } md:flex`}
+        >
+          {menuItems.map(({ label, href, external }) => {
             const isActive = pathname === href;
 
-            return (
-              <Link
+            const linkClasses = `text-lg transition-all duration-300 px-2 py-1 rounded-md ${
+              isActive
+                ? 'text-pink-400 font-semibold underline underline-offset-4'
+                : 'text-white hover:text-pink-400 hover:drop-shadow-[0_0_4px_#ec4899]'
+            }`;
+
+            return external ? (
+              <a
                 key={label}
                 href={href}
-                className={`text-lg transition-all duration-300 px-2 py-1 rounded-md ${
-                  isActive
-                    ? 'text-pink-400 font-semibold underline underline-offset-4'
-                    : 'text-white hover:text-pink-400 hover:drop-shadow-[0_0_4px_#ec4899]'
-                }`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClasses}
               >
+                {label}
+              </a>
+            ) : (
+              <Link key={label} href={href} className={linkClasses}>
                 {label}
               </Link>
             );
@@ -155,13 +161,12 @@ export default function NavBar() {
                 placeholder="e.g. We Vibe"
                 autoFocus
               />
-<button
-  type="submit"
-  className="mt-4 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-md transition"
->
-  Search
-</button>
-
+              <button
+                type="submit"
+                className="mt-4 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-md transition"
+              >
+                Search
+              </button>
             </form>
           </div>
         </div>
