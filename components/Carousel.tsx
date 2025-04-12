@@ -10,6 +10,11 @@ interface FeaturedItem {
 export default function Carousel() {
   const featuredList: FeaturedItem[] = [
     {
+      title: "Pecker Cake Pan - 10in",
+      img: "/Images/Pecker Cake Pan.PNG",
+      link: "http://www.shopshowworld.com/bp-10in-pecker-cake-pan-144-p3195.html"
+    },
+    {
       title: "INMI Bloomgasm Rose - Purple",
       img: "/Images/Purple Rose.PNG",
       link: "http://shopshowworld.com/inmi-bloomgasm-rose-purple-p67038.html"
@@ -50,9 +55,34 @@ export default function Carousel() {
       link: "http://shopshowworld.com/thrusting-jack-rabbit-purple-23-p24722.html"
     },
     {
-      title: "Dicky Sipping Straws - 10pk",
-      img: "/Images/Dicky Sipping Straws.PNG",
-      link: "http://shopshowworld.com/bp-dicky-sipping-straws-10pk-144-p3181.html"
+      title: "GITD Rainbow Naughty Straws - 6pk",
+      img: "/Images/Rainbow Naughty Straws.PNG",
+      link: "http://www.shopshowworld.com/gitd-rainbow-naughty-straws-6pk-144-p54076.html"
+    },
+    {
+      title: "Lace Mini Dress - Plus",
+      img: "/Images/Lace Mini Dress.PNG",
+      link: "http://www.shopshowworld.com/lace-mini-dress-plus-1405-p2007668.html"
+    },
+    {
+      title: "Top Plaid Skirt Set - One Size",
+      img: "/Images/top-plaid-skirt-set.PNG",
+      link: "http://www.shopshowworld.com/top-plaid-skirt-set-one-size-1465-p2009349.html"
+    },
+    {
+      title: "Sheer Backseam Stocking - Plus Black",
+      img: "/Images/sheer-backseam-stocking.PNG",
+      link: "http://www.shopshowworld.com/sheer-backseam-stocking-plus-black-p63733.html"
+    },
+    {
+      title: "Lace Top Net Cuban Heel Garter - OS Black",
+      img: "/Images/lace-top-net-cuban.PNG",
+      link: "http://www.shopshowworld.com/lace-top-net-cuban-heel-garter-os-black-p63752.html"
+    },
+    {
+      title: "Fuck Sauce Water Base Lube",
+      img: "/Images/Fuck Sauce.PNG",
+      link: "http://www.shopshowworld.com/fuck-sauce-water-base-lube-p66356.html"
     }
   ];
 
