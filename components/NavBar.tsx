@@ -100,10 +100,12 @@ export default function NavBar() {
 
         {/* Menu Items */}
         <div
-          className={`flex-col md:flex md:flex-row md:items-center md:justify-center w-full gap-4 px-6 pb-4 transition-all duration-300 ease-in-out ${
-            isOpen ? 'flex' : 'hidden'
-          } md:flex`}
-        >
+  className={`flex-col md:flex md:flex-row md:items-center md:justify-center w-full gap-4 px-6 pb-4 transition-all duration-300 ease-in-out ${
+    isOpen
+      ? 'flex bg-black/80 backdrop-blur-md md:bg-transparent'
+      : 'hidden'
+  } md:flex`}
+>
           {menuItems.map(({ label, href }) => {
             const isActive = pathname === href;
 
