@@ -13,7 +13,7 @@ export default function WaterlooStore() {
         <h1 className="text-4xl font-bold mb-6 text-pink-500">Show World - Waterloo</h1>
         <p className="mb-4 text-lg">Visit our Waterloo location for the full Show World experience!</p>
         <h2 className="text-5xl font-light text-center mb-10 text-blue-400 neon-glow" style={{ fontFamily: 'Pacifico, cursive' }}>Open 24/7</h2>
-        <div className="flex flex-col md:flex-row justify-center items-end gap-32">
+        <div className="flex flex-col md:flex-row justify-center items-center md:items-end gap-8 md:gap-32">
           <div className="text-center">
             <p className="text-sm mb-2">Address:</p>
             <p className="text-sm leading-tight">1490 Ninefoot Road<br />Waterloo, NY 13165</p>
