@@ -16,9 +16,6 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="pt-32 px-4 pb-16 text-center bg-gradient-to-br from-zinc-900 to-zinc-800">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-12 text-pink-500">
-          Welcome to Show World
-        </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-6xl mx-auto">
           {categories.map(({ title, img }) => (
             <Card key={title} className="w-full bg-zinc-900 border-zinc-800">
@@ -37,13 +34,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Carousel */}
-      <section className="py-20 px-6">
-        <h2
-          className="text-5xl font-light text-center mb-10 text-blue-400 neon-glow"
-          style={{ fontFamily: "Pacifico, cursive" }}
-        >
-          Trending Now
-        </h2>
+      <section className="py-10 px-6">
         <Carousel />
       </section>
 

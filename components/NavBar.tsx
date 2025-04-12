@@ -13,7 +13,7 @@ export default function NavBar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md shadow-md border-b border-zinc-800">
       {/* Top Bar */}
-      <div className="h-20 sm:h-24 px-6 flex justify-between items-center">
+      <div className="h-20 sm:h-24 px-6 pt-2 flex justify-between items-center">
         <Link href="/" className="group">
           <img
             src="/Images/ShowWorld girl pink.png"
