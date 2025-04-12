@@ -11,7 +11,7 @@ export default function Carousel() {
   const featuredList: FeaturedItem[] = [
     {
       title: "Pecker Cake Pan - 10in",
-      img: "/Images/Pecker Cake Pan.PNG",
+      img: "/Images/Pecker Cake Pan.png",
       link: "http://www.shopshowworld.com/bp-10in-pecker-cake-pan-144-p3195.html"
     },
     {
@@ -61,12 +61,12 @@ export default function Carousel() {
     },
     {
       title: "Lace Mini Dress - Plus",
-      img: "/Images/Lace Mini Dress.PNG",
+      img: "/Images/Lace Mini Dress.png",
       link: "http://www.shopshowworld.com/lace-mini-dress-plus-1405-p2007668.html"
     },
     {
       title: "Top Plaid Skirt Set - One Size",
-      img: "/Images/top-plaid-skirt-set.PNG",
+      img: "/Images/top-plaid-skirt-set.png",
       link: "http://www.shopshowworld.com/top-plaid-skirt-set-one-size-1465-p2009349.html"
     },
     {
@@ -81,7 +81,7 @@ export default function Carousel() {
     },
     {
       title: "Fuck Sauce Water Base Lube",
-      img: "/Images/Fuck Sauce.PNG",
+      img: "/Images/Fuck Sauce.png",
       link: "http://www.shopshowworld.com/fuck-sauce-water-base-lube-p66356.html"
     }
   ];
