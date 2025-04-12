@@ -36,7 +36,7 @@ export default function Carousel() {
     },
     {
       title: "We-Vibe Chorus - Cosmic Blue",
-      img: "/Images/We Vibe Chorus.PNG",
+      img: "/Images/WE Vibe Chorus.PNG",
       link: "http://shopshowworld.com/we-vibe-chorus-cosmic-blue-p66618.html"
     },
     {
