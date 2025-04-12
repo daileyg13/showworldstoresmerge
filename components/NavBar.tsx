@@ -89,10 +89,11 @@ export default function NavBar() {
               <ShoppingBag className="text-pink-400 cursor-pointer" />
             </a>
 
-            {/* Mobile Menu Toggle */}
-            <button onClick={toggleMenu} className="text-white md:hidden">
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+{/* Mobile Menu Toggle */}
+<button onClick={toggleMenu} className="text-pink-400 md:hidden">
+  {isOpen ? <X size={28} /> : <Menu size={28} />}
+</button>
+
           </div>
         </div>
 
