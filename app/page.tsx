@@ -15,7 +15,7 @@ export default function HomePage() {
       <NavBar />
 
       {/* Hero Section */}
-      <section className="pt-32 px-4 pb-16 text-center bg-gradient-to-br from-zinc-900 to-zinc-800">
+      <section className="pt-32 sm:pt-40 lg:pt-52 px-4 pb-16 text-center bg-gradient-to-br from-zinc-900 to-zinc-800">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-6xl mx-auto">
           {categories.map(({ title, img }) => (
             <Card key={title} className="w-full bg-zinc-900 border-zinc-800">
