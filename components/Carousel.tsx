@@ -91,15 +91,18 @@ export default function Carousel() {
   ];
 
   const carouselRef = useRef<HTMLDivElement>(null);
-
-  const scrollByAmount = 270; // Width of card + gap
+  const scrollByAmount = 270;
 
   const scrollLeft = () => {
-    carouselRef.current?.scrollBy({ left: -scrollByAmount, behavior: 'smooth' });
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: -scrollByAmount, behavior: 'smooth' });
+    }
   };
 
   const scrollRight = () => {
-    carouselRef.current?.scrollBy({ left: scrollByAmount, behavior: 'smooth' });
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: scrollByAmount, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -124,38 +127,41 @@ export default function Carousel() {
           <ChevronLeft className="w-6 h-6 text-white" />
         </button>
 
-        {/* Scrollable carousel */}
+        {/* Scrollable container */}
         <div
           ref={carouselRef}
-          className="flex animate-carousel gap-6 w-max overflow-x-auto scroll-smooth py-4 px-2 scrollbar-hide"
+          className="overflow-x-auto scroll-smooth whitespace-nowrap scrollbar-hide px-2 py-4"
         >
-          {featuredList.map(({ title, img, link }) => (
-            <Card
-              key={title}
-              className="min-w-[250px] max-w-[250px] h-[350px] flex-shrink-0 transition-transform duration-500 ease-in-out transform hover:scale-105 z-10"
-            >
-              <CardContent className="p-4 flex flex-col justify-between items-center h-full">
-                <div className="flex flex-col items-center w-full">
-                  <img
-                    src={img}
-                    alt={title}
-                    className="rounded-md mb-4 w-full object-contain h-48"
-                  />
-                  <p className="font-medium text-center text-sm mb-2 h-10 leading-tight overflow-hidden">
-                    {title}
-                  </p>
-                </div>
-                <a
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full"
-                >
-                  <Button className="w-full">View Product</Button>
-                </a>
-              </CardContent>
-            </Card>
-          ))}
+          {/* Animated content */}
+          <div className="flex gap-6 w-max animate-carousel">
+            {featuredList.map(({ title, img, link }) => (
+              <Card
+                key={title}
+                className="min-w-[250px] max-w-[250px] h-[350px] inline-block transition-transform duration-500 ease-in-out transform hover:scale-105 z-10"
+              >
+                <CardContent className="p-4 flex flex-col justify-between items-center h-full">
+                  <div className="flex flex-col items-center w-full">
+                    <img
+                      src={img}
+                      alt={title}
+                      className="rounded-md mb-4 w-full object-contain h-48"
+                    />
+                    <p className="font-medium text-center text-sm mb-2 h-10 leading-tight overflow-hidden">
+                      {title}
+                    </p>
+                  </div>
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full"
+                  >
+                    <Button className="w-full">View Product</Button>
+                  </a>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
         {/* Right Arrow */}
