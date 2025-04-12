@@ -36,22 +36,22 @@ export default function Carousel() {
     },
     {
       title: "We-Vibe Chorus - Cosmic Blue",
-      img: "/Images/We Vibe Chorus.png",
+      img: "/Images/We Vibe Chorus.PNG",
       link: "http://shopshowworld.com/we-vibe-chorus-cosmic-blue-p66618.html"
     },
     {
       title: "Perfection G-Spot - Pink 2.3",
-      img: "/Images/Perfection G-spot.png",
+      img: "/Images/Perfection G-spot.PNG",
       link: "http://shopshowworld.com/perfection-g-spot-pink-23-p38398.html"
     },
     {
       title: "Thrusting Jack Rabbit - Purple 2.3",
-      img: "/Images/Jack Rabbit Thrusting.png",
+      img: "/Images/Jack Rabbit Thrusting.PNG",
       link: "http://shopshowworld.com/thrusting-jack-rabbit-purple-23-p24722.html"
     },
     {
       title: "Dicky Sipping Straws - 10pk",
-      img: "/Images/Dicky Sipping Straws.png",
+      img: "/Images/Dicky Sipping Straws.PNG",
       link: "http://shopshowworld.com/bp-dicky-sipping-straws-10pk-144-p3181.html"
     }
   ];
