@@ -8,7 +8,7 @@ export default function WaterlooStore() {
     <div className="bg-black text-white font-sans overflow-x-hidden min-h-screen">
       <NavBar />
 
-      <main className="pt-32 text-center px-4">
+      <main className="pt-32 sm:pt-40 lg:pt-52 text-center px-4">
         <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-pink-500">
           Show World - Waterloo
         </h1>
@@ -54,17 +54,7 @@ export default function WaterlooStore() {
         </div>
       </main>
 
-      {/* Featured Section */}
-      <section className="py-20 px-6">
-        <h2
-          className="text-5xl font-light text-center mb-10 text-pink-500 neon-glow"
-          style={{ fontFamily: "Pacifico, cursive" }}
-        >
-          Trending Now
-        </h2>
-        <Carousel />
-      </section>
-
+      <Carousel />
       <Footer />
     </div>
   );
