@@ -1,5 +1,6 @@
 import { Card, CardContent } from "../components/ui/card";
 import NavBar from "@/components/NavBar";
+import Carousel from "@/components/Carousel";
 import Footer from "@/components/Footer";
 
 export default function HomePage() {
@@ -43,6 +44,11 @@ export default function HomePage() {
             </Card>
           ))}
         </div>
+      </section>
+
+      {/* Featured Carousel */}
+      <section className="py-10 px-6">
+        <Carousel />
       </section>
 
       <Footer />
