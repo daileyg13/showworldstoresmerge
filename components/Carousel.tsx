@@ -106,7 +106,7 @@ export default function Carousel() {
   };
 
   return (
-    <section className="py-20 px-6">
+    <section className="py-20 w-full overflow-hidden">
       <link
         href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
         rel="stylesheet"
@@ -130,14 +130,14 @@ export default function Carousel() {
         {/* Scrollable container */}
         <div
           ref={carouselRef}
-          className="overflow-x-auto scroll-smooth whitespace-nowrap scrollbar-hide px-4 sm:px-10 py-4"
+          className="overflow-x-auto scroll-smooth snap-x snap-mandatory whitespace-nowrap scrollbar-hide px-4 sm:px-10 py-4"
         >
           {/* Animated content */}
           <div className="flex gap-4 sm:gap-6 w-max animate-carousel">
             {featuredList.map(({ title, img, link }) => (
               <Card
                 key={title}
-                className="w-[80vw] sm:min-w-[250px] sm:max-w-[250px] h-[350px] inline-block flex-shrink-0 transition-transform duration-500 ease-in-out transform hover:scale-105 z-10"
+                className="w-[80vw] sm:min-w-[250px] sm:max-w-[250px] h-[350px] inline-block flex-shrink-0 snap-start transition-transform duration-500 ease-in-out transform hover:scale-105 z-10"
               >
                 <CardContent className="p-4 flex flex-col justify-between items-center h-full">
                   <div className="flex flex-col items-center w-full">
@@ -175,3 +175,4 @@ export default function Carousel() {
     </section>
   );
 }
+
