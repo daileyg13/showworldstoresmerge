@@ -92,10 +92,10 @@ const featuredList: FeaturedItem[] = [
 
 export default function Carousel() {
   const [index, setIndex] = useState(0);
-  const [itemsToShow, setItemsToShow] = useState(4);
   const [isHovered, setIsHovered] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
-  
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const itemsToShow = isMobile ? 2 : 4;
 
   const handlePrev = () => {
     setIndex((prevIndex) =>
@@ -106,15 +106,6 @@ export default function Carousel() {
   const handleNext = () => {
     setIndex((prevIndex) => (prevIndex + itemsToShow) % featuredList.length);
   };
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setItemsToShow(window.innerWidth < 768 ? 2 : 4);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   useEffect(() => {
     if (isHovered) return;
@@ -166,7 +157,7 @@ export default function Carousel() {
         onTouchEnd={onTouchEnd}
         ref={carouselRef}
       >
-        <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-4 max-w-screen-xl px-4 sm:px-0">
+        <div className="flex flex-wrap justify-center gap-4 max-w-screen-xl px-2 sm:px-0">
           {visibleItems.map((item) => (
             <motion.div
               key={item.title}
@@ -174,7 +165,7 @@ export default function Carousel() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="w-full max-w-[320px] sm:w-[250px] px-2 sm:px-1 box-border"
+              className="w-[45vw] sm:w-[250px]"
             >
               <Card className="w-full h-[350px] transition-transform hover:scale-105">
                 <CardContent className="p-4 flex flex-col justify-between items-center h-full">
