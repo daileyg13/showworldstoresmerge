@@ -1,5 +1,7 @@
+import { useRef } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { useSwipeable } from "react-swipeable"
 
 interface FeaturedItem {
   title: string
@@ -8,6 +10,23 @@ interface FeaturedItem {
 }
 
 export default function Carousel() {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      if (containerRef.current) {
+        containerRef.current.scrollBy({ left: 260, behavior: 'smooth' })
+      }
+    },
+    onSwipedRight: () => {
+      if (containerRef.current) {
+        containerRef.current.scrollBy({ left: -260, behavior: 'smooth' })
+      }
+    },
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true
+  })
+
   const featuredList: FeaturedItem[] = [
     {
       title: "Pecker Cake Pan - 10in",
@@ -95,28 +114,32 @@ export default function Carousel() {
         Trending Now
       </h2>
       <div className="relative overflow-visible py-8">
-        <div className="flex animate-carousel gap-6 w-max overflow-visible py-4">
+        <div
+          {...handlers}
+          ref={containerRef}
+          className="flex animate-carousel gap-6 w-max overflow-visible py-4"
+        >
           {featured.map(({ title, img, link }, index) => (
             <Card
               key={title}
               className="min-w-[250px] max-w-[250px] h-[350px] flex-shrink-0 transition-transform duration-500 ease-in-out transform hover:scale-105 z-10"
             >
               <div style={{ animationDelay: `${index * 2}s` }}>
-              <CardContent className="p-4 flex flex-col justify-between items-center h-full">
-  <div className="flex flex-col items-center w-full">
-    <img
-      src={img}
-      alt={title}
-      className="rounded-md mb-4 w-full object-contain h-48"
-    />
-    <p className="font-medium text-center text-sm mb-2 h-10 leading-tight overflow-hidden">
-      {title}
-    </p>
-  </div>
-  <a href={link} target="_blank" rel="noopener noreferrer" className="w-full">
-    <Button className="w-full">View Product</Button>
-  </a>
-</CardContent>
+                <CardContent className="p-4 flex flex-col justify-between items-center h-full">
+                  <div className="flex flex-col items-center w-full">
+                    <img
+                      src={img}
+                      alt={title}
+                      className="rounded-md mb-4 w-full object-contain h-48"
+                    />
+                    <p className="font-medium text-center text-sm mb-2 h-10 leading-tight overflow-hidden">
+                      {title}
+                    </p>
+                  </div>
+                  <a href={link} target="_blank" rel="noopener noreferrer" className="w-full">
+                    <Button className="w-full">View Product</Button>
+                  </a>
+                </CardContent>
               </div>
             </Card>
           ))}
