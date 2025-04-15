@@ -92,7 +92,8 @@ const featuredList: FeaturedItem[] = [
 
 export default function Carousel() {
   const [index, setIndex] = useState(0);
-  const itemsToShow = 4;
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const itemsToShow = isMobile ? 2 : 4;
 
   const handlePrev = () => {
     setIndex((prevIndex) =>
@@ -109,7 +110,7 @@ export default function Carousel() {
       setIndex((prevIndex) => (prevIndex + itemsToShow) % featuredList.length);
     }, 4000);
     return () => clearInterval(autoplay);
-  }, []);
+  }, [itemsToShow]);
 
   const visibleItems = featuredList
     .slice(index, index + itemsToShow)
@@ -120,7 +121,7 @@ export default function Carousel() {
     );
 
   return (
-    <section className="py-20 px-6">
+    <section className="py-20 px-4 sm:px-6">
       <link
         href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
         rel="stylesheet"
@@ -132,7 +133,7 @@ export default function Carousel() {
         Trending Now
       </h2>
       <div className="flex justify-center items-center">
-        <div className="flex gap-4">
+        <div className="flex flex-wrap justify-center gap-4 max-w-screen-xl">
           {visibleItems.map((item) => (
             <motion.div
               key={item.title}
@@ -140,7 +141,7 @@ export default function Carousel() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="w-[250px]"
+              className="w-[90vw] sm:w-[250px]"
             >
               <Card className="w-full h-[350px] transition-transform hover:scale-105">
                 <CardContent className="p-4 flex flex-col justify-between items-center h-full">
