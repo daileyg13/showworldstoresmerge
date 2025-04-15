@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion';
@@ -92,6 +92,8 @@ const featuredList: FeaturedItem[] = [
 
 export default function Carousel() {
   const [index, setIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const itemsToShow = isMobile ? 2 : 4;
 
@@ -106,11 +108,12 @@ export default function Carousel() {
   };
 
   useEffect(() => {
+    if (isHovered) return;
     const autoplay = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + itemsToShow) % featuredList.length);
     }, 4000);
     return () => clearInterval(autoplay);
-  }, [itemsToShow]);
+  }, [itemsToShow, isHovered]);
 
   const visibleItems = featuredList
     .slice(index, index + itemsToShow)
@@ -119,6 +122,20 @@ export default function Carousel() {
         ? featuredList.slice(0, (index + itemsToShow) % featuredList.length)
         : []
     );
+
+  const handleTouchStart = useRef<number | null>(null);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    handleTouchStart.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (handleTouchStart.current === null) return;
+    const deltaX = e.changedTouches[0].clientX - handleTouchStart.current;
+    if (deltaX > 50) handlePrev();
+    else if (deltaX < -50) handleNext();
+    handleTouchStart.current = null;
+  };
 
   return (
     <section className="py-20 px-4 sm:px-6">
@@ -132,7 +149,14 @@ export default function Carousel() {
       >
         Trending Now
       </h2>
-      <div className="flex justify-center items-center">
+      <div
+        className="flex justify-center items-center"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+        ref={carouselRef}
+      >
         <div className="flex flex-wrap justify-center gap-4 max-w-screen-xl">
           {visibleItems.map((item) => (
             <motion.div
