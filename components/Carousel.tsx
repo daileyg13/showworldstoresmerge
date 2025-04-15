@@ -166,7 +166,7 @@ export default function Carousel() {
         onTouchEnd={onTouchEnd}
         ref={carouselRef}
       >
-        <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-4 max-w-screen-xl px-4">
+        <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-4 max-w-screen-xl px-4 sm:px-0">
           {visibleItems.map((item) => (
             <motion.div
               key={item.title}
@@ -174,7 +174,7 @@ export default function Carousel() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="w-full sm:w-[250px] px-2 sm:px-1 box-border"
+              className="w-full max-w-[320px] sm:w-[250px] px-2 sm:px-1 box-border"
             >
               <Card className="w-full h-[350px] transition-transform hover:scale-105">
                 <CardContent className="p-4 flex flex-col justify-between items-center h-full">
