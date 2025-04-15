@@ -1,4 +1,6 @@
 // components/StorePageLayout.tsx
+'use client';
+
 import NavBar from "./NavBar";
 import Carousel from "./Carousel";
 import Footer from "./Footer";
