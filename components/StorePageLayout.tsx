@@ -1,10 +1,23 @@
-// components/StorePageLayout.tsx
 'use client';
 
-import NavBar from "./NavBar";
-import Carousel from "./Carousel";
-import Footer from "./Footer";
-import { Button } from "./ui/button";
+import localFont from 'next/font/local';
+import NavBar from './NavBar';
+import Carousel from './Carousel';
+import Footer from './Footer';
+import { Button } from './ui/button';
+
+// Load the LTC Broadway font from the project-root /fonts directory
+// Make sure you move LTCBroadway.ttf to a top-level `fonts/` folder (not under /public)
+const ltcBroadway = localFont({
+  src: [
+    {
+      path: '../fonts/LTCBroadway.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  display: 'swap',
+});
 
 interface StorePageLayoutProps {
   title: string;
@@ -28,14 +41,16 @@ export default function StorePageLayout({
       <NavBar />
 
       <main className="pt-32 sm:pt-40 lg:pt-52 text-center px-4">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-pink-500">
+        {/* Title with LTC Broadway font */}
+        <h1 className={`${ltcBroadway.className} text-4xl sm:text-5xl font-bold mb-6 text-pink-500`}>
           {title}
         </h1>
+
         <p className="mb-4 text-lg sm:text-xl">{description}</p>
 
         <h2
           className="text-5xl font-light text-center mb-10 text-blue-400 neon-glow"
-          style={{ fontFamily: "Pacifico, cursive" }}
+          style={{ fontFamily: 'Pacifico, cursive' }}
         >
           Open 24/7
         </h2>
@@ -53,7 +68,7 @@ export default function StorePageLayout({
 
           <div className="text-center">
             <p className="text-sm mb-2">Phone: {phone}</p>
-            <a href={`tel:${phone.replace(/[^\d+]/g, "")}`}>
+            <a href={`tel:${phone.replace(/[^\d+]/g, '')}`}>
               <Button className="mt-2 bg-pink-600 hover:bg-pink-700 text-white">
                 Call Us
               </Button>
