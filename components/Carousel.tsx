@@ -14,12 +14,12 @@ interface FeaturedItem {
 
 const featuredList: FeaturedItem[] = [
   {
-    title: "Pecker Cake Pan - 10in",
+    title: "Pecker Cake Pan -10in",
     img: "/Images/Pecker Cake Pan.png",
     link: "http://www.shopshowworld.com/bp-10in-pecker-cake-pan-144-p3195.html",
   },
   {
-    title: "INMI Bloomgasm Rose - Purple",
+    title: "INMI Bloomgasm Rose -Purple",
     img: "/Images/Purple Rose.PNG",
     link: "http://shopshowworld.com/inmi-bloomgasm-rose-purple-p67038.html",
   },
@@ -34,52 +34,52 @@ const featuredList: FeaturedItem[] = [
     link: "http://shopshowworld.com/zolo-upstroke-69-p81402.html",
   },
   {
-    title: "Bodywand Recharge Pulse - Black 2.3",
+    title: "Bodywand Recharge Pulse -Black",
     img: "/Images/Body Wand.PNG",
     link: "http://shopshowworld.com/bodywand-recharge-pulse-black-23-p33039.html",
   },
   {
-    title: "INYA The Rose - Red",
+    title: "INYA The Rose -Red",
     img: "/Images/Red Rose.PNG",
     link: "http://shopshowworld.com/inya-the-rose-red-p65371.html",
   },
   {
-    title: "We-Vibe Chorus - Cosmic Blue",
+    title: "We-Vibe Chorus -Cosmic Blue",
     img: "/Images/WE Vibe Chorus.PNG",
     link: "http://shopshowworld.com/we-vibe-chorus-cosmic-blue-p66618.html",
   },
   {
-    title: "Perfection G-Spot - Pink 2.3",
+    title: "Perfection G-Spot -Pink",
     img: "/Images/Perfection G-spot.PNG",
     link: "http://shopshowworld.com/perfection-g-spot-pink-23-p38398.html",
   },
   {
-    title: "Thrusting Jack Rabbit - Purple 2.3",
+    title: "Thrusting Jack Rabbit -Purple",
     img: "/Images/Jack Rabbit Thrusting.PNG",
     link: "http://shopshowworld.com/thrusting-jack-rabbit-purple-23-p24722.html",
   },
   {
-    title: "GITD Rainbow Naughty Straws - 6pk",
+    title: "GITD Rainbow Naughty Straws -6pk",
     img: "/Images/Rainbow Naughty Straws.PNG",
     link: "http://www.shopshowworld.com/gitd-rainbow-naughty-straws-6pk-144-p54076.html",
   },
   {
-    title: "Lace Mini Dress - Plus",
+    title: "Lace Mini Dress",
     img: "/Images/Lace Mini Dress.png",
     link: "http://www.shopshowworld.com/lace-mini-dress-plus-1405-p2007668.html",
   },
   {
-    title: "Top Plaid Skirt Set - One Size",
+    title: "Top Plaid Skirt Set",
     img: "/Images/top-plaid-skirt-set.png",
     link: "http://www.shopshowworld.com/top-plaid-skirt-set-one-size-1465-p2009349.html",
   },
   {
-    title: "Sheer Backseam Stocking - Plus Black",
+    title: "Sheer Backseam Stocking",
     img: "/Images/sheer-backseam-stocking.PNG",
     link: "http://www.shopshowworld.com/sheer-backseam-stocking-plus-black-p63733.html",
   },
   {
-    title: "Lace Top Net Cuban Heel Garter - OS Black",
+    title: "Lace Top Net Cuban Heel Garter",
     img: "/Images/lace-top-net-cuban.PNG",
     link: "http://www.shopshowworld.com/lace-top-net-cuban-heel-garter-os-black-p63752.html",
   },
@@ -95,7 +95,7 @@ export default function Carousel() {
   const [isHovered, setIsHovered] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const itemsToShow = isMobile ? 2 : 4;
+  const itemsToShow = isMobile ? 4 : 4;
 
   const handlePrev = () => {
     setIndex((prevIndex) =>
