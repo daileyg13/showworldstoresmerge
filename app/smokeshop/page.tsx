@@ -36,7 +36,7 @@ export default function SmokeShopPage() {
   return (
     <div className="bg-black text-white min-h-screen overflow-x-hidden">
       <NavBar />
-      
+
       {/* Hero section */}
       <section className="pt-40 pb-4 text-center px-4">
         <motion.div
