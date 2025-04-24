@@ -1,7 +1,7 @@
-// app/layout.tsx
 import '../styles/globals.css'
 import type { Metadata } from 'next'
 import ClientSpeedInsights from './ClientSpeedInsights'
+import ClientAnalytics from './ClientAnalytics'
 
 export const metadata: Metadata = {
   title: 'Show World',
@@ -19,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {children}
         <ClientSpeedInsights />
+        <ClientAnalytics />
       </body>
     </html>
   )
