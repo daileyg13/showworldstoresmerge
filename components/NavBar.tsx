@@ -62,17 +62,22 @@ export default function NavBar() {
         }`}
       >
         {/* Top Bar */}
-        <div className="h-20 sm:h-24 px-6 pt-2 flex justify-between items-center">
-          <Link href="/" className="group">
+        <div className="h-24 sm:h-32 px-6 pt-2 flex justify-between md:justify-center items-center relative">
+          <Link href="/" className="group block absolute left-6 md:relative md:left-0">
             <img
               src="/Images/ShowWorld girl pink.png"
               alt="Show World Logo"
-              className="h-20 transition duration-300 group-hover:brightness-0 group-hover:invert"
+              className="block md:hidden h-14 transition duration-300 group-hover:brightness-0 group-hover:invert"
+            />
+            <img
+              src="/Images/ShopShowWorldBanner White Letters.png"
+              alt="Show World Banner"
+              className="hidden md:block h-24 sm:h-28 transition duration-300 group-hover:brightness-0 group-hover:invert mx-auto"
             />
           </Link>
 
           {/* Icons */}
-          <div className="flex gap-6 items-center">
+          <div className="flex gap-6 items-center absolute right-6">
             <button
               onClick={() => setShowSearch(true)}
               className="text-pink-400 hover:scale-110 transition-transform"
@@ -89,11 +94,9 @@ export default function NavBar() {
               <ShoppingBag className="text-pink-400 cursor-pointer" />
             </a>
 
-{/* Mobile Menu Toggle */}
-<button onClick={toggleMenu} className="text-pink-400 md:hidden">
-  {isOpen ? <X size={28} /> : <Menu size={28} />}
-</button>
-
+            <button onClick={toggleMenu} className="text-pink-400 md:hidden">
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
           </div>
         </div>
 
