@@ -17,7 +17,7 @@ export default function NavBar() {
     { label: 'Henrietta', href: '/henrietta' },
     { label: 'Waterloo', href: '/waterloo' },
     { label: 'Lingerie', href: 'http://www.shopshowworld.com/c.html?c=79&b=Most+Recent', external: true },
-    { label: 'Smoke Shop', href: '#' },
+    { label: 'Smoke Shop', href: '/smokeshop' },
     { label: 'Toys', href: 'http://www.shopshowworld.com/c.html?b=Most+Popular', external: true },
     { label: 'Movies', href: 'http://www.shopshowworld.com/videos?b=Most+Recent', external: true },
   ];

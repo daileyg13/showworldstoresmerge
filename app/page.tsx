@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 export default function HomePage() {
   const categories = [
     { title: "Lingerie", img: "/Images/Lingerie.png", link: "http://www.shopshowworld.com/c.html?c=79&b=Most+Recent" },
-    { title: "Smoke Shop", img: "/Images/Smoke Shop.png" },
+    { title: "Smoke Shop", img: "/Images/Smoke Shop.png", link: "/smokeshop" },
     { title: "Adult Toys", img: "/Images/Adult Toys.png", link: "http://www.shopshowworld.com/c.html?b=Most+Popular" },
   ];
 

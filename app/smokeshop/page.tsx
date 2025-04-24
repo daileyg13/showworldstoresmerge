@@ -48,7 +48,7 @@ export default function SmokeShopPage() {
             className="neon-glow mx-auto w-full max-w-[700px] h-auto"
           />
         </motion.div>
-        <p className="text-lg text-gray-300 mt-2">The best in smoke gear, curated for your pleasure</p>
+        <p className="text-lg text-gray-300 mt-2">Western New York's Largest Selection of Smoking Accessories</p>
         <h2
           className="text-5xl font-light text-center mt-8 text-blue-400 neon-glow"
           style={{ fontFamily: 'Pacifico, cursive' }}
