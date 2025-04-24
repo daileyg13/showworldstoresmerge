@@ -1,8 +1,7 @@
-'use client';
-
+// app/layout.tsx
 import '../styles/globals.css'
 import type { Metadata } from 'next'
-import { SpeedInsights } from '@vercel/speed-insights/next'
+import ClientSpeedInsights from './ClientSpeedInsights'
 
 export const metadata: Metadata = {
   title: 'Show World',
@@ -19,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head />
       <body>
         {children}
-        <SpeedInsights />
+        <ClientSpeedInsights />
       </body>
     </html>
   )
