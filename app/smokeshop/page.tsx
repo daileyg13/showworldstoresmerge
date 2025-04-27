@@ -1,16 +1,14 @@
 // app/smokeshop/page.tsx
-'use client';
-
 import NavBar from '@/components/NavBar';
 import Carousel from '@/components/Carousel';
 import Footer from '@/components/Footer';
-import { motion } from 'framer-motion';
+import SmokeShopHero from '@/components/SmokeShopHero';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Show World Smoke Shop | Pipes, Vapes & Smoking Accessories",
   description: "Explore premium pipes, vapes, rolling papers, and smoking accessories at Show World’s Smoke Shop. Top brands, 24/7 head shop shopping, all in one place!"
-}
+};
 
 const brandLogos = [
   '/Brands/logo1.png',
@@ -44,27 +42,7 @@ export default function SmokeShopPage() {
     <div className="bg-black text-white min-h-screen overflow-x-hidden">
       <NavBar />
 
-      {/* Hero section */}
-      <section className="pt-40 pb-4 text-center px-4">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-        >
-          <img
-            src="/Images/Smoke Shop2.png"
-            alt="Smoke Shop Neon Logo"
-            className="neon-glow mx-auto w-full max-w-[700px] h-auto"
-          />
-        </motion.div>
-        <p className="text-lg text-gray-300 mt-2">Western New York's Largest Selection of Smoking Accessories</p>
-        <h2
-          className="text-5xl font-light text-center mt-8 text-blue-400 neon-glow"
-          style={{ fontFamily: 'Pacifico, cursive' }}
-        >
-          Open 24/7
-        </h2>
-      </section>
+      <SmokeShopHero />
 
       {/* Smoke Shop Favorites */}
       <section className="pt-20 pb-12 text-center px-4">
