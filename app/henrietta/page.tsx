@@ -1,4 +1,10 @@
 import StorePageLayout from "@/components/StorePageLayout";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Show World Henrietta NY | 24/7 Adult Store & Smoke Shop",
+  description: "Show World Henrietta offers adult toys, lingerie, and smoke accessories around the clock. Rochester’s go-to boutique for pleasure and fantasy!",
+};
 
 export default function HenriettaStore() {
   return (

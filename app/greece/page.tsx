@@ -1,4 +1,11 @@
 import StorePageLayout from "@/components/StorePageLayout";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Show World Greece NY | Adult Store, Lingerie, Smoke Shop',
+  description: 'Visit Show World in Greece, NY for adult toys, lingerie, and smoke shop essentials. Open 24/7 — your destination for pleasure and lifestyle gear!',
+}
+
 
 export default function GreeceStore() {
   return (

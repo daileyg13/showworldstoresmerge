@@ -5,6 +5,13 @@ import NavBar from '@/components/NavBar';
 import Carousel from '@/components/Carousel';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Show World Smoke Shop | Pipes, Vapes & Smoking Accessories",
+  description: "Explore premium pipes, vapes, rolling papers, and smoking accessories at Show World’s Smoke Shop. Top brands, 24/7 shopping, all in one place!"
+}
+
 const brandLogos = [
   '/Brands/logo1.png',
   '/Brands/logo2.png',
