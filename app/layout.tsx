@@ -4,8 +4,8 @@ import ClientSpeedInsights from './ClientSpeedInsights'
 import ClientAnalytics from './ClientAnalytics'
 
 export const metadata: Metadata = {
-  title: 'Show World',
-  description: 'Pleasure, fashion & fantasy lifestyle gear',
+  title: 'Show World | 24/7 Adult Boutique and Smoke Shop',
+  description: 'Discover Rochester’s 24/7 destination for lingerie, adult toys, smoking accessories, and more. Visit us in Greece, Henrietta, and Waterloo!',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
@@ -15,7 +15,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head />
       <body>
         {children}
         <ClientSpeedInsights />
