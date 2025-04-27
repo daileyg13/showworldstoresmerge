@@ -5,6 +5,7 @@ import { Card, CardContent } from "../components/ui/card";
 import NavBar from "@/components/NavBar";
 import Carousel from "@/components/Carousel";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 
 export default function HomePage() {
   const categories = [
@@ -63,14 +64,25 @@ export default function HomePage() {
             <Card key={title} className="w-full bg-zinc-900 border-zinc-800">
               <CardContent className="p-6 flex flex-col items-center text-center">
                 {link ? (
-                  <a href={link} target="_blank" rel="noopener noreferrer">
-                    <img
-                      src={img}
-                      alt={title}
-                      className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
-                      style={{ animationDelay: delays[index] }}
-                    />
-                  </a>
+                  title === "Smoke Shop" ? (
+                    <Link href={link}>
+                      <img
+                        src={img}
+                        alt={title}
+                        className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
+                        style={{ animationDelay: delays[index] }}
+                      />
+                    </Link>
+                  ) : (
+                    <a href={link} target="_blank" rel="noopener noreferrer">
+                      <img
+                        src={img}
+                        alt={title}
+                        className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
+                        style={{ animationDelay: delays[index] }}
+                      />
+                    </a>
+                  )
                 ) : (
                   <img
                     src={img}
@@ -78,9 +90,6 @@ export default function HomePage() {
                     className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
                     style={{ animationDelay: delays[index] }}
                   />
-                )}
-                {(title !== "Lingerie" && title !== "Adult Toys" && title !== "Smoke Shop") && (
-                  <p className="text-2xl font-bold text-white">{title}</p>
                 )}
               </CardContent>
             </Card>
@@ -97,6 +106,7 @@ export default function HomePage() {
     </div>
   );
 }
+
 
 
 
