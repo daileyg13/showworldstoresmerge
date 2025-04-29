@@ -66,14 +66,11 @@ export default function NavBar() {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-          scrolled
-            ? 'bg-black/90 backdrop-blur-md shadow-md border-b border-zinc-800'
-            : 'bg-transparent'
+          scrolled ? 'bg-black/90 backdrop-blur-md shadow-md border-b border-zinc-800' : 'bg-transparent'
         } ${isOpen ? 'overflow-hidden max-h-screen' : ''}`}
       >
-        {/* Top Bar */}
         <div className="h-24 sm:h-32 px-4 sm:px-6 pt-2 flex justify-between md:justify-center items-center relative">
-          <Link href="/" className="group block absolute left-4 md:relative md:left-0">
+          <Link href="/" className="group block absolute left-4 md:relative md:left-0" aria-label="Home">
             <Image
               src="/Images/ShowWorld girl pink.webp"
               alt="Show World Logo"
@@ -92,11 +89,11 @@ export default function NavBar() {
             />
           </Link>
 
-          {/* Icons */}
           <div className="flex gap-4 sm:gap-6 items-center absolute right-4">
             <button
               onClick={() => setShowSearch(true)}
               className="text-pink-400 hover:scale-110 transition-transform p-2 sm:p-1"
+              aria-label="Open search"
             >
               <Search className="cursor-pointer w-6 h-6 sm:w-5 sm:h-5" />
             </button>
@@ -106,31 +103,30 @@ export default function NavBar() {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-110 transition-transform p-2 sm:p-1"
+              aria-label="Go to store"
             >
               <ShoppingBag className="text-pink-400 cursor-pointer w-6 h-6 sm:w-5 sm:h-5" />
             </a>
 
-            <button onClick={toggleMenu} className="text-pink-400 md:hidden p-2">
+            <button
+              onClick={toggleMenu}
+              className="text-pink-400 md:hidden p-2"
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
 
-        {/* Menu Items */}
         <div
           className={`flex-col md:flex md:flex-row md:items-center md:justify-center w-full gap-4 px-6 pb-4 transition-all duration-300 ease-in-out text-center ${
-            isOpen
-              ? 'flex bg-black/80 backdrop-blur-md md:bg-transparent animate-slide-down'
-              : 'hidden'
+            isOpen ? 'flex bg-black/80 backdrop-blur-md md:bg-transparent animate-slide-down' : 'hidden'
           } md:flex`}
         >
           {menuItems.map(({ label, href, external }) => {
             const isActive = pathname === href;
-
             const linkClasses = `text-lg transition-all duration-300 px-4 py-2 rounded-md block w-full md:w-auto ${
-              isActive
-                ? 'text-pink-400 font-semibold underline underline-offset-4'
-                : 'text-white hover:text-pink-400 hover:drop-shadow-[0_0_4px_#ec4899]'
+              isActive ? 'text-pink-400 font-semibold underline underline-offset-4' : 'text-white hover:text-pink-400 hover:drop-shadow-[0_0_4px_#ec4899]'
             }`;
 
             return external ? (
@@ -144,7 +140,7 @@ export default function NavBar() {
                 {label}
               </a>
             ) : (
-              <Link key={label} href={href} className={linkClasses}>
+              <Link key={label} href={href} className={linkClasses} aria-label={label}>
                 {label}
               </Link>
             );
@@ -152,7 +148,6 @@ export default function NavBar() {
         </div>
       </nav>
 
-      {/* Search Modal */}
       {showSearch && (
         <div
           className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50 px-4"
@@ -165,6 +160,7 @@ export default function NavBar() {
             <button
               onClick={() => setShowSearch(false)}
               className="absolute top-2 right-2 text-zinc-400 hover:text-pink-400"
+              aria-label="Close search"
             >
               <X size={24} />
             </button>
