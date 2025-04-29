@@ -23,9 +23,9 @@ export default function NavBar() {
     { label: 'Henrietta', href: '/henrietta' },
     { label: 'Waterloo', href: '/waterloo' },
     { label: 'Smoke Shop', href: '/smokeshop' },
-    { label: 'Lingerie', href: 'http://www.shopshowworld.com/c.html?c=79&b=Most+Recent', external: true },
-    { label: 'Toys', href: 'http://www.shopshowworld.com/c.html?b=Most+Popular', external: true },
-    { label: 'Movies', href: 'http://www.shopshowworld.com/videos?b=Most+Recent', external: true },
+    { label: 'Lingerie', href: 'http://www.shopshowworld.com/c.html?c=79&b=Most+Recent', external: false },
+    { label: 'Toys', href: 'http://www.shopshowworld.com/c.html?b=Most+Popular', external: false },
+    { label: 'Movies', href: 'http://www.shopshowworld.com/videos?b=Most+Recent', external: false },
   ];
 
   const toggleMenu = useCallback(() => setIsOpen(prev => !prev), []);
@@ -130,15 +130,9 @@ export default function NavBar() {
             }`;
 
             return external ? (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={linkClasses}
-              >
+              <Link key={label} href={href} className={linkClasses} aria-label={label}>
                 {label}
-              </a>
+              </Link>
             ) : (
               <Link key={label} href={href} className={linkClasses} aria-label={label}>
                 {label}
