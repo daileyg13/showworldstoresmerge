@@ -72,8 +72,8 @@ export default function HomePage() {
                       <Image
                         src={img}
                         alt={title}
-                        width={400}
-                        height={400}
+                        width={300}
+                        height={200}
                         className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
                         style={{ animationDelay: delays[index] }}
                         loading="lazy"
@@ -118,9 +118,6 @@ export default function HomePage() {
     </div>
   );
 }
-
-
-
 
 
 
