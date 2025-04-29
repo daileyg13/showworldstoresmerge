@@ -73,8 +73,8 @@ export default function HomePage() {
                         src={img}
                         alt={title}
                         width={300}
-                        height={200}
-                        className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
+                        height={300}
+                        className="rounded-lg mb-4 w-full object-cover h-72 neon-glow"
                         style={{ animationDelay: delays[index] }}
                         loading="lazy"
                       />
@@ -84,9 +84,9 @@ export default function HomePage() {
                       <Image
                         src={img}
                         alt={title}
-                        width={400}
-                        height={400}
-                        className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
+                        width={300}
+                        height={300}
+                        className="rounded-lg mb-4 w-full object-cover h-72 neon-glow"
                         style={{ animationDelay: delays[index] }}
                         priority={title === "Lingerie"}
                       />
@@ -96,9 +96,9 @@ export default function HomePage() {
                   <Image
                     src={img}
                     alt={title}
-                    width={400}
-                    height={400}
-                    className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
+                    width={300}
+                    height={300}
+                    className="rounded-lg mb-4 w-full object-cover h-72 neon-glow"
                     style={{ animationDelay: delays[index] }}
                     loading="lazy"
                   />
@@ -118,7 +118,6 @@ export default function HomePage() {
     </div>
   );
 }
-
 
 
 

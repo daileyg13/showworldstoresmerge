@@ -127,8 +127,8 @@ export default function Carousel() {
                       src={item.img}
                       alt={item.title}
                       className="rounded-md mb-4 w-full object-contain h-48"
-                      width={250}
-                      height={167}
+                      width={200}
+                      height={133}
                       loading="lazy"
                     />
                     <p className="font-medium text-center text-sm mb-2 h-10 leading-tight overflow-hidden">
