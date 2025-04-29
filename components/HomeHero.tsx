@@ -41,9 +41,10 @@ export default function HomeHero() {
                     <Image
                       src={img}
                       alt={title}
-                      width={300}
-                      height={300}
-                      className="rounded-lg mb-4 w-full object-cover h-72 neon-glow"
+                      width={250}
+                      height={167}
+                      sizes="(max-width: 768px) 100vw, 250px"
+                      className="rounded-lg mb-4 w-full object-cover h-60 neon-glow"
                       style={{ animationDelay: delays[index] }}
                       loading="lazy"
                     />
@@ -57,9 +58,10 @@ export default function HomeHero() {
                     <Image
                       src={img}
                       alt={title}
-                      width={300}
-                      height={300}
-                      className="rounded-lg mb-4 w-full object-cover h-72 neon-glow"
+                      width={250}
+                      height={167}
+                      sizes="(max-width: 768px) 100vw, 250px"
+                      className="rounded-lg mb-4 w-full object-cover h-60 neon-glow"
                       style={{ animationDelay: delays[index] }}
                       priority={index === 0}
                     />
@@ -69,9 +71,10 @@ export default function HomeHero() {
                 <Image
                   src={img}
                   alt={title}
-                  width={300}
-                  height={300}
-                  className="rounded-lg mb-4 w-full object-cover h-72 neon-glow"
+                  width={250}
+                  height={167}
+                  sizes="(max-width: 768px) 100vw, 250px"
+                  className="rounded-lg mb-4 w-full object-cover h-60 neon-glow"
                   style={{ animationDelay: delays[index] }}
                   loading="lazy"
                 />
