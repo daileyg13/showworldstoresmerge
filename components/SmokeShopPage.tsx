@@ -10,12 +10,12 @@ const NavBar = dynamic(() => import('@/components/NavBar'), { ssr: false });
 const Carousel = dynamic(() => import('@/components/Carousel'), { ssr: false });
 
 const originalBrandLogos = [
-  '/Brands/logo1.png', '/Brands/logo2.png', '/Brands/logo3.png', '/Brands/logo4.png',
-  '/Brands/logo5.png', '/Brands/logo6.png', '/Brands/logo7.png', '/Brands/logo8.png',
-  '/Brands/logo9.png', '/Brands/logo10.png', '/Brands/logo11.png', '/Brands/logo12.png',
-  '/Brands/logo13.png', '/Brands/logo14.png', '/Brands/logo15.png', '/Brands/logo16.png',
-  '/Brands/logo17.png', '/Brands/logo18.png', '/Brands/logo19.png', '/Brands/logo20.png',
-  '/Brands/logo21.png', '/Brands/logo22.png', '/Brands/logo23.png', '/Brands/logo24.png',
+  '/Brands/logo1.webp', '/Brands/logo2.webp', '/Brands/logo3.webp', '/Brands/logo4.webp',
+  '/Brands/logo5.webp', '/Brands/logo6.webp', '/Brands/logo7.webp', '/Brands/logo8.webp',
+  '/Brands/logo9.webp', '/Brands/logo10.webp', '/Brands/logo11.webp', '/Brands/logo12.webp',
+  '/Brands/logo13.webp', '/Brands/logo14.webp', '/Brands/logo15.webp', '/Brands/logo16.webp',
+  '/Brands/logo17.webp', '/Brands/logo18.webp', '/Brands/logo19.webp', '/Brands/logo20.webp',
+  '/Brands/logo21.webp', '/Brands/logo22.webp', '/Brands/logo23.webp', '/Brands/logo24.webp',
 ];
 
 export default function SmokeShopPage() {

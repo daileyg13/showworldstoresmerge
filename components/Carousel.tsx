@@ -23,21 +23,21 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 const originalList: FeaturedItem[] = [
-  { title: "Pecker Cake Pan -10in", img: "/Images/Pecker Cake Pan.png", link: "http://www.shopshowworld.com/bp-10in-pecker-cake-pan-144-p3195.html" },
-  { title: "INMI Bloomgasm Rose -Purple", img: "/Images/Purple Rose.PNG", link: "http://shopshowworld.com/inmi-bloomgasm-rose-purple-p67038.html" },
-  { title: "PDX Interactive Bad Girl 69", img: "/Images/Dirty Talk.png", link: "http://shopshowworld.com/pdx-interactive-bad-girl-69-p53862.html" },
-  { title: "ZOLO Upstroke 69", img: "/Images/Zolo.PNG", link: "http://shopshowworld.com/zolo-upstroke-69-p81402.html" },
-  { title: "Bodywand Recharge Pulse -Black", img: "/Images/Body Wand.PNG", link: "http://shopshowworld.com/bodywand-recharge-pulse-black-23-p33039.html" },
-  { title: "INYA The Rose -Red", img: "/Images/Red Rose.PNG", link: "http://shopshowworld.com/inya-the-rose-red-p65371.html" },
-  { title: "We-Vibe Chorus -Cosmic Blue", img: "/Images/WE Vibe Chorus.PNG", link: "http://shopshowworld.com/we-vibe-chorus-cosmic-blue-p66618.html" },
-  { title: "Perfection G-Spot -Pink", img: "/Images/Perfection G-spot.PNG", link: "http://shopshowworld.com/perfection-g-spot-pink-23-p38398.html" },
-  { title: "Thrusting Jack Rabbit -Purple", img: "/Images/Jack Rabbit Thrusting.PNG", link: "http://shopshowworld.com/thrusting-jack-rabbit-purple-23-p24722.html" },
-  { title: "GITD Rainbow Naughty Straws -6pk", img: "/Images/Rainbow Naughty Straws.PNG", link: "http://www.shopshowworld.com/gitd-rainbow-naughty-straws-6pk-144-p54076.html" },
-  { title: "Lace Mini Dress", img: "/Images/Lace Mini Dress.png", link: "http://www.shopshowworld.com/lace-mini-dress-plus-1405-p2007668.html" },
-  { title: "Top Plaid Skirt Set", img: "/Images/top-plaid-skirt-set.png", link: "http://www.shopshowworld.com/top-plaid-skirt-set-one-size-1465-p2009349.html" },
-  { title: "Sheer Backseam Stocking", img: "/Images/sheer-backseam-stocking.PNG", link: "http://www.shopshowworld.com/sheer-backseam-stocking-plus-black-p63733.html" },
-  { title: "Lace Top Net Cuban Heel Garter", img: "/Images/lace-top-net-cuban.PNG", link: "http://www.shopshowworld.com/lace-top-net-cuban-heel-garter-os-black-p63752.html" },
-  { title: "Fuck Sauce Water Base Lube", img: "/Images/Fuck Sauce.png", link: "http://www.shopshowworld.com/fuck-sauce-water-base-lube-p66356.html" }
+  { title: "Pecker Cake Pan -10in", img: "/Images/Pecker Cake Pan.webp", link: "http://www.shopshowworld.com/bp-10in-pecker-cake-pan-144-p3195.html" },
+  { title: "INMI Bloomgasm Rose -Purple", img: "/Images/Purple Rose.webp", link: "http://shopshowworld.com/inmi-bloomgasm-rose-purple-p67038.html" },
+  { title: "PDX Interactive Bad Girl 69", img: "/Images/Dirty Talk.webp", link: "http://shopshowworld.com/pdx-interactive-bad-girl-69-p53862.html" },
+  { title: "ZOLO Upstroke 69", img: "/Images/Zolo.webp", link: "http://shopshowworld.com/zolo-upstroke-69-p81402.html" },
+  { title: "Bodywand Recharge Pulse -Black", img: "/Images/Body Wand.webp", link: "http://shopshowworld.com/bodywand-recharge-pulse-black-23-p33039.html" },
+  { title: "INYA The Rose -Red", img: "/Images/Red Rose.webp", link: "http://shopshowworld.com/inya-the-rose-red-p65371.html" },
+  { title: "We-Vibe Chorus -Cosmic Blue", img: "/Images/WE Vibe Chorus.webp", link: "http://shopshowworld.com/we-vibe-chorus-cosmic-blue-p66618.html" },
+  { title: "Perfection G-Spot -Pink", img: "/Images/Perfection G-spot.webp", link: "http://shopshowworld.com/perfection-g-spot-pink-23-p38398.html" },
+  { title: "Thrusting Jack Rabbit -Purple", img: "/Images/Jack Rabbit Thrusting.webp", link: "http://shopshowworld.com/thrusting-jack-rabbit-purple-23-p24722.html" },
+  { title: "GITD Rainbow Naughty Straws -6pk", img: "/Images/Rainbow Naughty Straws.webp", link: "http://www.shopshowworld.com/gitd-rainbow-naughty-straws-6pk-144-p54076.html" },
+  { title: "Lace Mini Dress", img: "/Images/Lace Mini Dress.webp", link: "http://www.shopshowworld.com/lace-mini-dress-plus-1405-p2007668.html" },
+  { title: "Top Plaid Skirt Set", img: "/Images/top-plaid-skirt-set.webp", link: "http://www.shopshowworld.com/top-plaid-skirt-set-one-size-1465-p2009349.html" },
+  { title: "Sheer Backseam Stocking", img: "/Images/sheer-backseam-stocking.webp", link: "http://www.shopshowworld.com/sheer-backseam-stocking-plus-black-p63733.html" },
+  { title: "Lace Top Net Cuban Heel Garter", img: "/Images/lace-top-net-cuban.webp", link: "http://www.shopshowworld.com/lace-top-net-cuban-heel-garter-os-black-p63752.html" },
+  { title: "Fuck Sauce Water Base Lube", img: "/Images/Fuck Sauce.webp", link: "http://www.shopshowworld.com/fuck-sauce-water-base-lube-p66356.html" }
 ];
 
 export default function Carousel() {

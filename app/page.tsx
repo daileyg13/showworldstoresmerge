@@ -6,15 +6,16 @@ import dynamic from "next/dynamic";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 
 // Dynamically import the Carousel to reduce INP cost on initial load
 const Carousel = dynamic(() => import("@/components/Carousel"), { ssr: false });
 
 export default function HomePage() {
   const categories = [
-    { title: "Lingerie", img: "/Images/Lingerie.png", link: "http://www.shopshowworld.com/c.html?c=79&b=Most+Recent" },
-    { title: "Smoke Shop", img: "/Images/Smoke Shop.png", link: "/smokeshop" },
-    { title: "Adult Toys", img: "/Images/Adult Toys.png", link: "http://www.shopshowworld.com/c.html?b=Most+Popular" },
+    { title: "Lingerie", img: "/Images/Lingerie.webp", link: "http://www.shopshowworld.com/c.html?c=79&b=Most+Recent" },
+    { title: "Smoke Shop", img: "/Images/Smoke Shop.webp", link: "/smokeshop" },
+    { title: "Adult Toys", img: "/Images/Adult Toys.webp", link: "http://www.shopshowworld.com/c.html?b=Most+Popular" },
   ];
 
   const [showAgeCheck, setShowAgeCheck] = useState(false);
@@ -68,19 +69,23 @@ export default function HomePage() {
                 {link ? (
                   title === "Smoke Shop" ? (
                     <Link href={link}>
-                      <img
+                      <Image
                         src={img}
                         alt={title}
+                        width={400}
+                        height={400}
                         className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
                         style={{ animationDelay: delays[index] }}
-                        loading="lazy"
+                        priority={title === "Smoke Shop"}
                       />
                     </Link>
                   ) : (
                     <a href={link} target="_blank" rel="noopener noreferrer">
-                      <img
+                      <Image
                         src={img}
                         alt={title}
+                        width={400}
+                        height={400}
                         className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
                         style={{ animationDelay: delays[index] }}
                         loading="lazy"
@@ -88,9 +93,11 @@ export default function HomePage() {
                     </a>
                   )
                 ) : (
-                  <img
+                  <Image
                     src={img}
                     alt={title}
+                    width={400}
+                    height={400}
                     className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
                     style={{ animationDelay: delays[index] }}
                     loading="lazy"

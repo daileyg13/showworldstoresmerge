@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 const Menu = dynamic(() => import('lucide-react').then(mod => mod.Menu), { ssr: false });
 const X = dynamic(() => import('lucide-react').then(mod => mod.X), { ssr: false });
@@ -73,15 +74,21 @@ export default function NavBar() {
         {/* Top Bar */}
         <div className="h-24 sm:h-32 px-4 sm:px-6 pt-2 flex justify-between md:justify-center items-center relative">
           <Link href="/" className="group block absolute left-4 md:relative md:left-0">
-            <img
-              src="/Images/ShowWorld girl pink.png"
+            <Image
+              src="/Images/ShowWorld girl pink.webp"
               alt="Show World Logo"
-              className="block md:hidden h-14 transition duration-300 group-hover:brightness-0 group-hover:invert"
+              width={64}
+              height={64}
+              priority
+              className="block md:hidden h-14 w-auto transition duration-300 group-hover:brightness-0 group-hover:invert"
             />
-            <img
-              src="/Images/ShopShowWorldBanner White Letters.png"
+            <Image
+              src="/Images/ShopShowWorldBanner White Letters.webp"
               alt="Show World Banner"
-              className="hidden md:block h-24 sm:h-28 transition duration-300 group-hover:brightness-0 group-hover:invert mx-auto"
+              width={400}
+              height={96}
+              priority
+              className="hidden md:block h-24 sm:h-28 w-auto transition duration-300 group-hover:brightness-0 group-hover:invert mx-auto"
             />
           </Link>
 
