@@ -129,6 +129,7 @@ export default function Carousel() {
                       className="rounded-md mb-4 w-full object-contain h-48"
                       width={200}
                       height={133}
+                      sizes="(max-width: 768px) 50vw, 250px"
                       loading="lazy"
                     />
                     <p className="font-medium text-center text-sm mb-2 h-10 leading-tight overflow-hidden">
