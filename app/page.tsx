@@ -76,7 +76,7 @@ export default function HomePage() {
                         height={400}
                         className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
                         style={{ animationDelay: delays[index] }}
-                        priority={title === "Smoke Shop"}
+                        loading="lazy"
                       />
                     </Link>
                   ) : (
@@ -88,7 +88,7 @@ export default function HomePage() {
                         height={400}
                         className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
                         style={{ animationDelay: delays[index] }}
-                        loading="lazy"
+                        priority={title === "Lingerie"}
                       />
                     </a>
                   )
@@ -118,7 +118,6 @@ export default function HomePage() {
     </div>
   );
 }
-
 
 
 
