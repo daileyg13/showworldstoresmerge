@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
 interface FeaturedItem {
   title: string;
@@ -12,87 +13,37 @@ interface FeaturedItem {
   link: string;
 }
 
-const featuredList: FeaturedItem[] = [
-  {
-    title: "Pecker Cake Pan -10in",
-    img: "/Images/Pecker Cake Pan.png",
-    link: "http://www.shopshowworld.com/bp-10in-pecker-cake-pan-144-p3195.html",
-  },
-  {
-    title: "INMI Bloomgasm Rose -Purple",
-    img: "/Images/Purple Rose.PNG",
-    link: "http://shopshowworld.com/inmi-bloomgasm-rose-purple-p67038.html",
-  },
-  {
-    title: "PDX Interactive Bad Girl 69",
-    img: "/Images/Dirty Talk.png",
-    link: "http://shopshowworld.com/pdx-interactive-bad-girl-69-p53862.html",
-  },
-  {
-    title: "ZOLO Upstroke 69",
-    img: "/Images/Zolo.PNG",
-    link: "http://shopshowworld.com/zolo-upstroke-69-p81402.html",
-  },
-  {
-    title: "Bodywand Recharge Pulse -Black",
-    img: "/Images/Body Wand.PNG",
-    link: "http://shopshowworld.com/bodywand-recharge-pulse-black-23-p33039.html",
-  },
-  {
-    title: "INYA The Rose -Red",
-    img: "/Images/Red Rose.PNG",
-    link: "http://shopshowworld.com/inya-the-rose-red-p65371.html",
-  },
-  {
-    title: "We-Vibe Chorus -Cosmic Blue",
-    img: "/Images/WE Vibe Chorus.PNG",
-    link: "http://shopshowworld.com/we-vibe-chorus-cosmic-blue-p66618.html",
-  },
-  {
-    title: "Perfection G-Spot -Pink",
-    img: "/Images/Perfection G-spot.PNG",
-    link: "http://shopshowworld.com/perfection-g-spot-pink-23-p38398.html",
-  },
-  {
-    title: "Thrusting Jack Rabbit -Purple",
-    img: "/Images/Jack Rabbit Thrusting.PNG",
-    link: "http://shopshowworld.com/thrusting-jack-rabbit-purple-23-p24722.html",
-  },
-  {
-    title: "GITD Rainbow Naughty Straws -6pk",
-    img: "/Images/Rainbow Naughty Straws.PNG",
-    link: "http://www.shopshowworld.com/gitd-rainbow-naughty-straws-6pk-144-p54076.html",
-  },
-  {
-    title: "Lace Mini Dress",
-    img: "/Images/Lace Mini Dress.png",
-    link: "http://www.shopshowworld.com/lace-mini-dress-plus-1405-p2007668.html",
-  },
-  {
-    title: "Top Plaid Skirt Set",
-    img: "/Images/top-plaid-skirt-set.png",
-    link: "http://www.shopshowworld.com/top-plaid-skirt-set-one-size-1465-p2009349.html",
-  },
-  {
-    title: "Sheer Backseam Stocking",
-    img: "/Images/sheer-backseam-stocking.PNG",
-    link: "http://www.shopshowworld.com/sheer-backseam-stocking-plus-black-p63733.html",
-  },
-  {
-    title: "Lace Top Net Cuban Heel Garter",
-    img: "/Images/lace-top-net-cuban.PNG",
-    link: "http://www.shopshowworld.com/lace-top-net-cuban-heel-garter-os-black-p63752.html",
-  },
-  {
-    title: "Fuck Sauce Water Base Lube",
-    img: "/Images/Fuck Sauce.png",
-    link: "http://www.shopshowworld.com/fuck-sauce-water-base-lube-p66356.html",
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
+  return shuffled;
+}
+
+const originalList: FeaturedItem[] = [
+  { title: "Pecker Cake Pan -10in", img: "/Images/Pecker Cake Pan.png", link: "http://www.shopshowworld.com/bp-10in-pecker-cake-pan-144-p3195.html" },
+  { title: "INMI Bloomgasm Rose -Purple", img: "/Images/Purple Rose.PNG", link: "http://shopshowworld.com/inmi-bloomgasm-rose-purple-p67038.html" },
+  { title: "PDX Interactive Bad Girl 69", img: "/Images/Dirty Talk.png", link: "http://shopshowworld.com/pdx-interactive-bad-girl-69-p53862.html" },
+  { title: "ZOLO Upstroke 69", img: "/Images/Zolo.PNG", link: "http://shopshowworld.com/zolo-upstroke-69-p81402.html" },
+  { title: "Bodywand Recharge Pulse -Black", img: "/Images/Body Wand.PNG", link: "http://shopshowworld.com/bodywand-recharge-pulse-black-23-p33039.html" },
+  { title: "INYA The Rose -Red", img: "/Images/Red Rose.PNG", link: "http://shopshowworld.com/inya-the-rose-red-p65371.html" },
+  { title: "We-Vibe Chorus -Cosmic Blue", img: "/Images/WE Vibe Chorus.PNG", link: "http://shopshowworld.com/we-vibe-chorus-cosmic-blue-p66618.html" },
+  { title: "Perfection G-Spot -Pink", img: "/Images/Perfection G-spot.PNG", link: "http://shopshowworld.com/perfection-g-spot-pink-23-p38398.html" },
+  { title: "Thrusting Jack Rabbit -Purple", img: "/Images/Jack Rabbit Thrusting.PNG", link: "http://shopshowworld.com/thrusting-jack-rabbit-purple-23-p24722.html" },
+  { title: "GITD Rainbow Naughty Straws -6pk", img: "/Images/Rainbow Naughty Straws.PNG", link: "http://www.shopshowworld.com/gitd-rainbow-naughty-straws-6pk-144-p54076.html" },
+  { title: "Lace Mini Dress", img: "/Images/Lace Mini Dress.png", link: "http://www.shopshowworld.com/lace-mini-dress-plus-1405-p2007668.html" },
+  { title: "Top Plaid Skirt Set", img: "/Images/top-plaid-skirt-set.png", link: "http://www.shopshowworld.com/top-plaid-skirt-set-one-size-1465-p2009349.html" },
+  { title: "Sheer Backseam Stocking", img: "/Images/sheer-backseam-stocking.PNG", link: "http://www.shopshowworld.com/sheer-backseam-stocking-plus-black-p63733.html" },
+  { title: "Lace Top Net Cuban Heel Garter", img: "/Images/lace-top-net-cuban.PNG", link: "http://www.shopshowworld.com/lace-top-net-cuban-heel-garter-os-black-p63752.html" },
+  { title: "Fuck Sauce Water Base Lube", img: "/Images/Fuck Sauce.png", link: "http://www.shopshowworld.com/fuck-sauce-water-base-lube-p66356.html" }
 ];
 
 export default function Carousel() {
   const [index, setIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [featuredList] = useState(() => shuffleArray(originalList));
   const carouselRef = useRef<HTMLDivElement>(null);
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const itemsToShow = isMobile ? 4 : 4;
@@ -113,15 +64,17 @@ export default function Carousel() {
       setIndex((prevIndex) => (prevIndex + itemsToShow) % featuredList.length);
     }, 4000);
     return () => clearInterval(autoplay);
-  }, [itemsToShow, isHovered]);
+  }, [itemsToShow, isHovered, featuredList.length]);
 
-  const visibleItems = featuredList
-    .slice(index, index + itemsToShow)
-    .concat(
-      index + itemsToShow > featuredList.length
-        ? featuredList.slice(0, (index + itemsToShow) % featuredList.length)
-        : []
-    );
+  const visibleItems = useMemo(() => (
+    featuredList
+      .slice(index, index + itemsToShow)
+      .concat(
+        index + itemsToShow > featuredList.length
+          ? featuredList.slice(0, (index + itemsToShow) % featuredList.length)
+          : []
+      )
+  ), [index, itemsToShow, featuredList]);
 
   const handleTouchStart = useRef<number | null>(null);
 
@@ -170,10 +123,13 @@ export default function Carousel() {
               <Card className="w-full h-[350px] transition-transform hover:scale-105">
                 <CardContent className="p-4 flex flex-col justify-between items-center h-full">
                   <div className="flex flex-col items-center w-full">
-                    <img
+                    <Image
                       src={item.img}
                       alt={item.title}
                       className="rounded-md mb-4 w-full object-contain h-48"
+                      width={300}
+                      height={200}
+                      loading="lazy"
                     />
                     <p className="font-medium text-center text-sm mb-2 h-10 leading-tight overflow-hidden">
                       {item.title}
@@ -194,10 +150,10 @@ export default function Carousel() {
         </div>
       </div>
       <div className="flex justify-center items-center mt-8 gap-4">
-        <button onClick={handlePrev}>
+        <button onClick={handlePrev} aria-label="Previous">
           <ChevronLeft className="w-8 h-8 text-white hover:text-pink-400" />
         </button>
-        <button onClick={handleNext}>
+        <button onClick={handleNext} aria-label="Next">
           <ChevronRight className="w-8 h-8 text-white hover:text-pink-400" />
         </button>
       </div>

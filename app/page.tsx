@@ -2,10 +2,13 @@
 
 import { useEffect, useState, useMemo } from "react";
 import { Card, CardContent } from "../components/ui/card";
+import dynamic from "next/dynamic";
 import NavBar from "@/components/NavBar";
-import Carousel from "@/components/Carousel";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+
+// Dynamically import the Carousel to reduce INP cost on initial load
+const Carousel = dynamic(() => import("@/components/Carousel"), { ssr: false });
 
 export default function HomePage() {
   const categories = [
@@ -19,7 +22,6 @@ export default function HomePage() {
 
   useEffect(() => {
     setHasMounted(true);
-
     const hasVisited = localStorage.getItem("ageVerified");
     if (!hasVisited) {
       setShowAgeCheck(true);
@@ -71,6 +73,7 @@ export default function HomePage() {
                         alt={title}
                         className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
                         style={{ animationDelay: delays[index] }}
+                        loading="lazy"
                       />
                     </Link>
                   ) : (
@@ -80,6 +83,7 @@ export default function HomePage() {
                         alt={title}
                         className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
                         style={{ animationDelay: delays[index] }}
+                        loading="lazy"
                       />
                     </a>
                   )
@@ -89,6 +93,7 @@ export default function HomePage() {
                     alt={title}
                     className="rounded-lg mb-4 w-full object-cover h-80 neon-glow"
                     style={{ animationDelay: delays[index] }}
+                    loading="lazy"
                   />
                 )}
               </CardContent>
@@ -106,10 +111,6 @@ export default function HomePage() {
     </div>
   );
 }
-
-
-
-
 
 
 

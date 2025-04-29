@@ -1,9 +1,14 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Search, ShoppingBag } from 'lucide-react';
+
+const Menu = dynamic(() => import('lucide-react').then(mod => mod.Menu), { ssr: false });
+const X = dynamic(() => import('lucide-react').then(mod => mod.X), { ssr: false });
+const Search = dynamic(() => import('lucide-react').then(mod => mod.Search), { ssr: false });
+const ShoppingBag = dynamic(() => import('lucide-react').then(mod => mod.ShoppingBag), { ssr: false });
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,11 +27,15 @@ export default function NavBar() {
     { label: 'Movies', href: 'http://www.shopshowworld.com/videos?b=Most+Recent', external: true },
   ];
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = useCallback(() => setIsOpen(prev => !prev), []);
 
   useEffect(() => {
+    let timeout: NodeJS.Timeout | null = null;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        setScrolled(window.scrollY > 10);
+      }, 100);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -59,11 +68,11 @@ export default function NavBar() {
           scrolled
             ? 'bg-black/90 backdrop-blur-md shadow-md border-b border-zinc-800'
             : 'bg-transparent'
-        }`}
+        } ${isOpen ? 'overflow-hidden max-h-screen' : ''}`}
       >
         {/* Top Bar */}
-        <div className="h-24 sm:h-32 px-6 pt-2 flex justify-between md:justify-center items-center relative">
-          <Link href="/" className="group block absolute left-6 md:relative md:left-0">
+        <div className="h-24 sm:h-32 px-4 sm:px-6 pt-2 flex justify-between md:justify-center items-center relative">
+          <Link href="/" className="group block absolute left-4 md:relative md:left-0">
             <img
               src="/Images/ShowWorld girl pink.png"
               alt="Show World Logo"
@@ -77,24 +86,24 @@ export default function NavBar() {
           </Link>
 
           {/* Icons */}
-          <div className="flex gap-6 items-center absolute right-6">
+          <div className="flex gap-4 sm:gap-6 items-center absolute right-4">
             <button
               onClick={() => setShowSearch(true)}
-              className="text-pink-400 hover:scale-110 transition-transform"
+              className="text-pink-400 hover:scale-110 transition-transform p-2 sm:p-1"
             >
-              <Search className="cursor-pointer" />
+              <Search className="cursor-pointer w-6 h-6 sm:w-5 sm:h-5" />
             </button>
 
             <a
               href="http://www.shopshowworld.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform"
+              className="hover:scale-110 transition-transform p-2 sm:p-1"
             >
-              <ShoppingBag className="text-pink-400 cursor-pointer" />
+              <ShoppingBag className="text-pink-400 cursor-pointer w-6 h-6 sm:w-5 sm:h-5" />
             </a>
 
-            <button onClick={toggleMenu} className="text-pink-400 md:hidden">
+            <button onClick={toggleMenu} className="text-pink-400 md:hidden p-2">
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
@@ -102,16 +111,16 @@ export default function NavBar() {
 
         {/* Menu Items */}
         <div
-          className={`flex-col md:flex md:flex-row md:items-center md:justify-center w-full gap-4 px-6 pb-4 transition-all duration-300 ease-in-out ${
+          className={`flex-col md:flex md:flex-row md:items-center md:justify-center w-full gap-4 px-6 pb-4 transition-all duration-300 ease-in-out text-center ${
             isOpen
-              ? 'flex bg-black/80 backdrop-blur-md md:bg-transparent'
+              ? 'flex bg-black/80 backdrop-blur-md md:bg-transparent animate-slide-down'
               : 'hidden'
           } md:flex`}
         >
           {menuItems.map(({ label, href, external }) => {
             const isActive = pathname === href;
 
-            const linkClasses = `text-lg transition-all duration-300 px-2 py-1 rounded-md ${
+            const linkClasses = `text-lg transition-all duration-300 px-4 py-2 rounded-md block w-full md:w-auto ${
               isActive
                 ? 'text-pink-400 font-semibold underline underline-offset-4'
                 : 'text-white hover:text-pink-400 hover:drop-shadow-[0_0_4px_#ec4899]'

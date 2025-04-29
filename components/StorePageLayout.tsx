@@ -1,13 +1,15 @@
 'use client';
 
 import localFont from 'next/font/local';
-import NavBar from './NavBar';
-import Carousel from './Carousel';
+import dynamic from 'next/dynamic';
+import { useMemo } from 'react';
 import Footer from './Footer';
 import { Button } from './ui/button';
 
-// Load the LTC Broadway font from the project-root /fonts directory
-// Make sure you move LTCBroadway.ttf to a top-level `fonts/` folder (not under /public)
+// Dynamically load heavier components to reduce INP
+const NavBar = dynamic(() => import('./NavBar'), { ssr: false });
+const Carousel = dynamic(() => import('./Carousel'), { ssr: false });
+
 const ltcBroadway = localFont({
   src: [
     {
@@ -36,12 +38,34 @@ export default function StorePageLayout({
   phone,
   children,
 }: StorePageLayoutProps) {
+  const contactBlock = useMemo(() => (
+    <div className="flex flex-col md:flex-row justify-center items-center md:items-end gap-8 md:gap-32" role="region" aria-label="Contact Information">
+      <div className="text-center">
+        <p className="text-sm mb-2">Address:</p>
+        <p className="text-sm leading-tight whitespace-pre-line">{address}</p>
+        <a href={mapLink} target="_blank" rel="noopener noreferrer">
+          <Button className="mt-2 bg-pink-600 hover:bg-pink-700 text-white">
+            Get Directions
+          </Button>
+        </a>
+      </div>
+
+      <div className="text-center">
+        <p className="text-sm mb-2">Phone: {phone}</p>
+        <a href={`tel:${phone.replace(/[^\d+]/g, '')}`}>
+          <Button className="mt-2 bg-pink-600 hover:bg-pink-700 text-white">
+            Call Us
+          </Button>
+        </a>
+      </div>
+    </div>
+  ), [address, mapLink, phone]);
+
   return (
     <div className="bg-black text-white font-sans overflow-x-hidden min-h-screen">
       <NavBar />
 
-      <main className="pt-32 sm:pt-40 lg:pt-52 text-center px-4">
-        {/* Title with LTC Broadway font */}
+      <main className="pt-32 sm:pt-40 lg:pt-52 text-center px-4" role="main">
         <h1 className={`${ltcBroadway.className} text-4xl sm:text-5xl font-bold mb-6 text-pink-500`}>
           {title}
         </h1>
@@ -55,27 +79,7 @@ export default function StorePageLayout({
           Open 24/7
         </h2>
 
-        <div className="flex flex-col md:flex-row justify-center items-center md:items-end gap-8 md:gap-32">
-          <div className="text-center">
-            <p className="text-sm mb-2">Address:</p>
-            <p className="text-sm leading-tight whitespace-pre-line">{address}</p>
-            <a href={mapLink} target="_blank" rel="noopener noreferrer">
-              <Button className="mt-2 bg-pink-600 hover:bg-pink-700 text-white">
-                Get Directions
-              </Button>
-            </a>
-          </div>
-
-          <div className="text-center">
-            <p className="text-sm mb-2">Phone: {phone}</p>
-            <a href={`tel:${phone.replace(/[^\d+]/g, '')}`}>
-              <Button className="mt-2 bg-pink-600 hover:bg-pink-700 text-white">
-                Call Us
-              </Button>
-            </a>
-          </div>
-        </div>
-
+        {contactBlock}
         {children}
       </main>
 
