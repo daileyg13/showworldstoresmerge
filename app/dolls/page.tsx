@@ -14,7 +14,7 @@ export default function DollsPage() {
   return (
     <DollPageLayout>
       <h1 className="text-pink-400 text-2xl md:text-3xl font-bold mb-12 text-center">
-    <span className="text-white font-normal">Hannah, Nina, Goldie, Bella, Amber and Lola</span> in stock!
+    <span className="text-white font-normal">Hannah, Nina, Bella, Amber and Lola</span> in stock!
       </h1>
 
       <div className="flex flex-col gap-12 items-center">
