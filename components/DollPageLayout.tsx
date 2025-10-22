@@ -38,7 +38,7 @@ export default function DollPageLayout({ children }: Props) {
         {children}
 
         <p className="text-lg sm:text-xl mt-6">
-          We currently have <strong>Hannah, Nina, Goldie, Bella, Amber and Lola</strong> in stock!
+          We currently have <strong>Hannah, Nina, Bella, Amber and Lola</strong> in stock!
         </p>
       </main>
 
