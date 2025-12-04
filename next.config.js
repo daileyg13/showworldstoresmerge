@@ -1,8 +1,9 @@
 // next.config.js
-module.exports = {
-    reactStrictMode: true,
-    experimental: {
-      serverComponentsExternalPackages: ['@vercel/speed-insights'],
-    },
-  }
-  
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  serverExternalPackages: ['@vercel/speed-insights'],
+};
+
+module.exports = nextConfig;
