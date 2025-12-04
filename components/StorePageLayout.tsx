@@ -1,4 +1,6 @@
 // components/StorePageLayout.tsx
+"use client";
+
 import localFont from "next/font/local";
 import dynamic from "next/dynamic";
 import type { ReactNode } from "react";
