@@ -1,10 +1,10 @@
-// app/layout.tsx
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import "../styles/globals.css";
 
-import ClientSpeedInsights from "./ClientSpeedInsights";
-import ClientAnalytics from "./ClientAnalytics";
+// TEMP: comment these out
+// import ClientSpeedInsights from "./ClientSpeedInsights";
+// import ClientAnalytics from "./ClientAnalytics";
 
 export const metadata: Metadata = {
   title: "Show World | 24/7 Adult Boutique and Smoke Shop",
@@ -21,8 +21,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body>
         {children}
-        <ClientSpeedInsights />
-        <ClientAnalytics />
+        {/* <ClientSpeedInsights />
+        <ClientAnalytics /> */}
       </body>
     </html>
   );
