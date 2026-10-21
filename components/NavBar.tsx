@@ -8,14 +8,10 @@ import Image from 'next/image';
 
 const Menu = dynamic(() => import('lucide-react').then(mod => mod.Menu), { ssr: false });
 const X = dynamic(() => import('lucide-react').then(mod => mod.X), { ssr: false });
-const Search = dynamic(() => import('lucide-react').then(mod => mod.Search), { ssr: false });
-const ShoppingBag = dynamic(() => import('lucide-react').then(mod => mod.ShoppingBag), { ssr: false });
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
-  const [query, setQuery] = useState('');
   const pathname = usePathname();
 
   const menuItems = [
@@ -23,9 +19,6 @@ export default function NavBar() {
     { label: 'Henrietta', href: '/henrietta' },
     { label: 'Waterloo', href: '/waterloo' },
     { label: 'Smoke Shop', href: '/smokeshop' },
-    { label: 'Lingerie', href: 'http://www.shopshowworld.com/c.html?c=79&b=Most+Recent', external: false },
-    { label: 'Toys', href: 'http://www.shopshowworld.com/c.html?b=Most+Popular', external: false },
-    { label: 'Movies', href: 'http://www.shopshowworld.com/videos?b=Most+Recent', external: false },
   ];
 
   const toggleMenu = useCallback(() => setIsOpen(prev => !prev), []);
@@ -42,25 +35,6 @@ export default function NavBar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setShowSearch(false);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (query.trim()) {
-      const encoded = encodeURIComponent(query.trim());
-      window.location.href = `http://www.shopshowworld.com/c.php?q=${encoded}&search-type=Toys`;
-    }
-  };
 
   return (
     <>
@@ -91,24 +65,6 @@ export default function NavBar() {
 
           <div className="flex gap-4 sm:gap-6 items-center absolute right-4">
             <button
-              onClick={() => setShowSearch(true)}
-              className="text-pink-400 hover:scale-110 transition-transform p-2 sm:p-1"
-              aria-label="Open search"
-            >
-              <Search className="cursor-pointer w-6 h-6 sm:w-5 sm:h-5" />
-            </button>
-
-            <a
-              href="http://www.shopshowworld.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform p-2 sm:p-1"
-              aria-label="Go to store"
-            >
-              <ShoppingBag className="text-pink-400 cursor-pointer w-6 h-6 sm:w-5 sm:h-5" />
-            </a>
-
-            <button
               onClick={toggleMenu}
               className="text-pink-400 md:hidden p-2"
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
@@ -123,17 +79,13 @@ export default function NavBar() {
             isOpen ? 'flex bg-black/80 backdrop-blur-md md:bg-transparent animate-slide-down' : 'hidden'
           } md:flex`}
         >
-          {menuItems.map(({ label, href, external }) => {
+          {menuItems.map(({ label, href }) => {
             const isActive = pathname === href;
             const linkClasses = `text-lg transition-all duration-300 px-4 py-2 rounded-md block w-full md:w-auto ${
               isActive ? 'text-pink-400 font-semibold underline underline-offset-4' : 'text-white hover:text-pink-400 hover:drop-shadow-[0_0_4px_#ec4899]'
             }`;
 
-            return external ? (
-              <Link key={label} href={href} className={linkClasses} aria-label={label}>
-                {label}
-              </Link>
-            ) : (
+            return (
               <Link key={label} href={href} className={linkClasses} aria-label={label}>
                 {label}
               </Link>
@@ -142,45 +94,6 @@ export default function NavBar() {
         </div>
       </nav>
 
-      {showSearch && (
-        <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50 px-4"
-          onClick={() => setShowSearch(false)}
-        >
-          <div
-            className="bg-zinc-900 p-6 rounded-xl w-full max-w-md text-white relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setShowSearch(false)}
-              className="absolute top-2 right-2 text-zinc-400 hover:text-pink-400"
-              aria-label="Close search"
-            >
-              <X size={24} />
-            </button>
-            <form onSubmit={handleSearchSubmit}>
-              <label htmlFor="search" className="block mb-2 text-pink-400 text-sm font-semibold">
-                What are you looking for?
-              </label>
-              <input
-                id="search"
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                className="w-full px-4 py-2 rounded-md bg-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-pink-400"
-                placeholder="e.g. We Vibe"
-                autoFocus
-              />
-              <button
-                type="submit"
-                className="mt-4 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-md transition"
-              >
-                Search
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
     </>
   );
 }
