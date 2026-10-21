@@ -9,7 +9,7 @@ const categories = [
   {
     title: 'Lingerie',
     img: '/Images/Lingerie.webp',
-    link: 'http://www.shopshowworld.com/c.html?c=79&b=Most+Recent',
+    link: null,
   },
   {
     title: 'Smoke Shop',
@@ -19,7 +19,7 @@ const categories = [
   {
     title: 'Adult Toys',
     img: '/Images/Adult Toys.webp',
-    link: 'http://www.shopshowworld.com/c.html?b=Most+Popular',
+    link: null,
   },
 ];
 
@@ -36,35 +36,17 @@ export default function HomeHero() {
           <Card key={title} className="w-full bg-zinc-900 border-zinc-800">
             <CardContent className="p-6 flex flex-col items-center text-center">
               {link ? (
-                title === 'Smoke Shop' ? (
-                  <Link href={link}>
-                    <Image
-                      src={img}
-                      alt={title}
-                      width={300}
-                      height={300}
-                      className="rounded-lg mb-4 w-full object-cover h-72 neon-glow"
-                      style={{ animationDelay: delays[index] }}
-                      loading="lazy"
-                    />
-                  </Link>
-                ) : (
-                  <a
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Image
-                      src={img}
-                      alt={title}
-                      width={300}
-                      height={300}
-                      className="rounded-lg mb-4 w-full object-cover h-72 neon-glow"
-                      style={{ animationDelay: delays[index] }}
-                      priority={index === 0}
-                    />
-                  </a>
-                )
+                <Link href={link}>
+                  <Image
+                    src={img}
+                    alt={title}
+                    width={300}
+                    height={300}
+                    className="rounded-lg mb-4 w-full object-cover h-72 neon-glow"
+                    style={{ animationDelay: delays[index] }}
+                    loading="lazy"
+                  />
+                </Link>
               ) : (
                 <Image
                   src={img}
